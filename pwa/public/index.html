@@ -1,0 +1,77 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+  //      const divInstall = document.getElementById('installContainer');
+//const butInstall = document.getElementById('butInstall');
+
+/* Put code here */
+
+
+
+/* Only register a service worker if it's supported */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+
+/**
+ * Warn the page must be served over HTTPS
+ * The `beforeinstallprompt` event won't fire if the page is served over HTTP.
+ * Installability requires a service worker with a fetch event handler, and
+ * if the page isn't served over HTTPS, the service worker won't load.
+ */
+/*
+ if (window.location.protocol === 'http:') {
+  const requireHTTPS = document.getElementById('requireHTTPS');
+  const link = requireHTTPS.querySelector('a');
+  link.href = window.location.href.replace('http://', 'https://');
+  requireHTTPS.classList.remove('hidden');
+}
+*/
+    </script>
+    <script type="module" src="components/main/main.js"></script>
+</head><body>
+    <components-main></components-main>
+    <header>
+        <title></title>
+        <navigation><ul>
+            <li><a href="#Codes">Codes</a></li>
+            <li><a href="#Users">User</a></li>
+            <li><a href="#User">User</a></li>
+        </ul></navigation>
+    </header>
+    <div width="320px">
+        <section id="User">
+            <!-- Contains Twitch Login -->
+            <!-- Gives Scanner when Logged in-->
+            <qrcode-reader></qrcode-reader>
+            <script type="module" src="./qr-code-reader.js"></script>
+        </section>
+
+        <section id="Users">
+            <!-- List Users Management Create and List -->
+            <!-- Add Users Management Create and List -->
+
+        </section>
+
+    </div>
+    <section id="Admin"></section>
+    
+    <script type="module">
+        
+        const refreshCodeList = () => {
+            const Users = document.getElementById('Users');
+            Users.innerHTML = '<ul>';
+            JSON.parse(window.localStorage.getItem('Users')).forEach(u=>{
+                const { points, mail } = u
+                Users.innerHTML += `<li>${points} - ${mail}</li>` 
+            });
+            Users.innerHTML += '</ul>';
+        }
+        // on Load 
+        refreshCodeList();
+
+    </script>
+</body></html>

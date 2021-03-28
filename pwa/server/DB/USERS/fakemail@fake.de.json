@@ -1,0 +1,10 @@
+{ 
+    "points": 200, 
+    "password": "", 
+    "twitch": { 
+        "id": 0, 
+        "token": "xxx",
+        "name": "Frank Lemanschik",
+        "email": "fakeemail@fake.de"
+    } 
+}
