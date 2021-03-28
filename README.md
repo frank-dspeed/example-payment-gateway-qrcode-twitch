@@ -15,5 +15,3 @@ Class Refactoring.
 
 The Code Includes hardcoded values all this values are from external projects
 so they are not harmfull for us while we should Replace them with Correct Secret Values
-
-https://github.com/frank-dspeed.keys
